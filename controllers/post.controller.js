@@ -7,8 +7,8 @@ const fs = require("fs/promises")
 const createPost = async (req, res) => {
   const body = req.body;
   const file = req.files // for upload files 
-  //const { id } = req.user;
-  const id = req.user //"68547f5b86a19906ff318a3f"; // using id instead of the req.user
+  const { id } = req.user;
+  //const id = req.user //"68547f5b86a19906ff318a3f"; // using id instead of the req.user
   console.log(body)
   //console.log(file)// to get the file uploaded
   //console.log(file["previewPix"][0].path)// to get individual item in a file

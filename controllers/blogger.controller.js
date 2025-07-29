@@ -1,9 +1,20 @@
 const userModel = require('../models/user.model')
 
 
-const getBlogger = (req, res) => {
-    return res.json("getting all bloggers")
-  }
+// const getBlogger = (req, res) => {
+//     return res.json("getting all bloggers")
+//   }
+
+
+const getAllBloggers = async (req, res) => {
+    try {
+        const bloggers = await userModel.find();  // Or your blogger model if different
+        return res.json(bloggers);
+    } catch (error) {
+        return res.status(500).json({ message: "Something went wrong" });
+    }
+};
+  
 const createBlogger = async (req, res) => {
     const payload = req.body
     const newBloger = new userModel(payload);
@@ -20,4 +31,4 @@ const deleteBlogger = (req, res) => {
 
 }
 
-module.exports = { getBlogger, createBlogger, updateBlogger, deleteBlogger }
+module.exports = { getAllBloggers, createBlogger, updateBlogger, deleteBlogger }

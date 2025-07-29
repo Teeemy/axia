@@ -76,7 +76,7 @@ const loginUser = async (req, res) => {
     res.cookie("token", token, { maxAge: 1000 * 60 * 60, secure: true, httponly: true,}).json({ message: "login successful" });
     // maxage :1000 *60 is converting the time*(hr) for the cookie to stay to 60 seconds
     // secure and http only means http only should be use and cookie is secure
-    return res.json({ message: "Successful" });
+    //return res.json({ message: "Successful" });
 };
 
 const getAllUSer = async (req, res) => {

@@ -24,7 +24,7 @@ const Port = process.env.PORT || 5000; // this is to use tRENDER to assign a por
 
 app.use(cookieParser());
 
-app.use(bloggerRoutes);// app.use is  middleware to create endpoint for database manipulation
+app.use("/blog",bloggerRoutes);// app.use is  middleware to create endpoint for database manipulation
 app.use("/user", userRoutes);
 app.use("/post", postRoutes);
 app.use(kycRoutes);
@@ -37,11 +37,12 @@ app.use((err, req, res, next) => {
 });
   
 app.listen(Port, () => {
-    console.log('App is running on port: ${Port}');
+    console.log(`App is running on port: ${Port}`);
 });
 
 
 
+
 // app.listen(4000, () => {
-//     console.log("my app is running  on port 4000")
+//     console.log("my app is running on port 4000")
 // });
