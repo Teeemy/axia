@@ -40,7 +40,10 @@ app.use((err, req, res, next) => {
     //console.error(err.stack);
     res.status(err.status || 501).json({ message: err.message || "Something went wrong" });
 });
-  
+
+console.log("🚀 ENV PORT:", process.env.PORT);
+
+
 app.listen(Port, () => {
     console.log(`App is running on port: ${Port}`);
 });
