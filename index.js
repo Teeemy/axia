@@ -31,6 +31,11 @@ app.use(kycRoutes);
 app.use("/book", bookRoutes);
 
 
+// 👇 Add this root route
+app.get("/", (req, res) => {
+    res.send("API is running 🚀");
+});
+
 app.use((err, req, res, next) => {
     //console.error(err.stack);
     res.status(err.status || 501).json({ message: err.message || "Something went wrong" });
