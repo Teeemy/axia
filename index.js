@@ -25,10 +25,10 @@ const Port = process.env.PORT || 5000; // this is to use tRENDER to assign a por
 app.use(cookieParser());
 
 app.use("/blog",bloggerRoutes);// app.use is  middleware to create endpoint for database manipulation
-app.use("/user", userRoutes);
-app.use("/post", postRoutes);
-app.use(kycRoutes);
-app.use("/book", bookRoutes);
+app.use("/user",userRoutes);
+app.use("/post",postRoutes);
+app.use("/kyc",kycRoutes);
+app.use("/book",bookRoutes);
 
 
 // 👇 Add this root route
