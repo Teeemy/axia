@@ -25,17 +25,25 @@ const Port = process.env.PORT || 5000; // this is to use tRENDER to assign a por
 app.use(cookieParser());
 
 app.use("/blog",bloggerRoutes);// app.use is  middleware to create endpoint for database manipulation
-app.use("/user", userRoutes);
-app.use("/post", postRoutes);
-app.use(kycRoutes);
-app.use("/book", bookRoutes);
+app.use("/user",userRoutes);
+app.use("/post",postRoutes);
+app.use("/kyc",kycRoutes);
+app.use("/book",bookRoutes);
 
+
+// 👇 Add this root route
+app.get("/", (req, res) => {
+    res.send("API is running 🚀");
+});
 
 app.use((err, req, res, next) => {
     //console.error(err.stack);
     res.status(err.status || 501).json({ message: err.message || "Something went wrong" });
 });
-  
+
+console.log("🚀 ENV PORT:", process.env.PORT);
+
+
 app.listen(Port, () => {
     console.log(`App is running on port: ${Port}`);
 });
